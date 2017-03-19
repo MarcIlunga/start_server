@@ -1,0 +1,61 @@
+{% extends "index.html" %}
+{% block body %}
+<div class="container">
+      <div class="row">
+      <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+
+        <A href= "/logout">Logout</A>
+
+
+      <form action={{edit}} method="post" name="log">
+      
+
+
+      <div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h1>Edit your info here</h1>
+         {% if error %}
+            <p class=error><strong>Error:</strong> {{ error }}
+          {% endif %}
+      </div>
+
+      <div class="login-form">
+        <div class="control-group">
+        <p> {{form.firstname(placeholder=current_user.firstname)}}</p>
+        <label class="login-field-icon fui-user" for="login-name"></label>
+        </div>
+
+        <div class="control-group">
+        <p> {{form.lastname(placeholder=current_user.lastname)}}</p>
+        <label class="login-field-icon fui-lock" for="login-pass"></label>
+
+        <div class="control-group">
+        <p> {{form.email(placeholder=current_user.email)}}</p>
+        <label class="login-field-icon fui-lock" for="login-pass"></label>
+        </div>
+
+        <div class="control-group">
+        <p> {{form.o_pass(placeholder="Old Password. Leave empty to keep the old one")}}</p>
+        <label class="login-field-icon fui-lock" for="login-pass"></label>
+        </div>
+
+        <div class="control-group">
+        <p> {{form.n_pass(placeholder="New Password")}}</p>
+        <label class="login-field-icon fui-lock" for="login-pass"></label>
+        </div>
+
+        <div class="control-group">
+        <p> {{form.cn_pass(placeholder="confirm Password")}}</p>
+        <label class="login-field-icon fui-lock" for="login-pass"></label>
+        </div>
+
+                <input type="submit" value="Save" class="btn btn-primary btn-large btn-block" >
+          <br>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+
+{% endblock %}
